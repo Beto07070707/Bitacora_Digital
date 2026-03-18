@@ -1,0 +1,59 @@
+#header{
+	max-width: 1100px;
+	margin: auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 15px 20px;
+	font-family: century gothic;
+}
+
+ul, ol{
+	list-style: none;
+	padding: 0; /* Añadido para quitar el espacio en blanco por defecto de las listas */
+	margin: 0;
+}
+
+.nav li a{
+	background-color: #CD55FA;
+	color: #fff;
+	text-decoration:none ;
+	padding: 10px 15px;
+	display: block;
+	/* position: fixed; <--- ELIMINADO: esto amontonaba todos los textos */
+	z-index: 1000;
+}
+
+.nav li a:hover{
+	background-color: #E7ABF7;
+}
+
+.nav > li {
+	float: left; /* CORREGIDO: antes decía 'center', float solo acepta left o right */
+	position: relative; /* AÑADIDO: Mantiene al submenú pegado debajo de su botón */
+}
+
+.nav li ul{
+	display:none;
+	position: absolute;
+	min-width: 300px;
+	top: 100%; /* AÑADIDO: Fuerza al submenú a salir justo debajo */
+	left: 0;   /* AÑADIDO: Lo alinea a la izquierda de su botón */
+}
+
+.nav li:hover > ul{
+	display: block;
+}
+
+.nav li ul li{
+	position: relative; /* CORREGIDO: antes decía 'column', lo cual no existe */
+}
+
+.nav li ul li ul{
+	right: -140px;
+	top: 0px;
+}
+
+.nav{
+	font-family: Century Gothic;
+}

@@ -1,0 +1,137 @@
+/* =========================================
+   ESTILOS GENERALES Y ESCRITORIO
+========================================= */
+body { 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    margin: 0; 
+    padding: 0; 
+    background-color: #f4f7f6; 
+    color: #333;
+}
+
+header { 
+    background-color: #ca15e1; 
+    color: white; 
+    padding: 30px 20px; 
+    text-align: center; 
+}
+
+header h1 { margin: 0; font-size: 2.5em; }
+header p { margin: 10px 0 0 0; font-size: 1.2em; color: #b2dfdb; }
+
+/* --- TRUCO DEL MENÚ HAMBURGUESA --- */
+/* Ocultamos el checkbox y el botón en computadoras */
+#check-menu { display: none; }
+.btn-hamburguesa { display: none; }
+
+/* Barra de navegación principal */
+nav { background-color: #ca15e1; }
+nav > ul { 
+    list-style-type: none; 
+    margin: 0; 
+    padding: 0; 
+    display: flex; 
+    justify-content: center; 
+    flex-wrap: wrap; 
+}
+nav ul li { position: relative; }
+nav ul li a { 
+    display: block; 
+    color: white; 
+    text-align: center; 
+    padding: 16px 24px; 
+    text-decoration: none; 
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+nav ul li a:hover { background-color: #800089; }
+
+/* Submenús desplegables */
+nav ul li ul { 
+    display: none; 
+    position: absolute; 
+    background-color: #800089; 
+    min-width: 250px; 
+    flex-direction: column; 
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.3); 
+    z-index: 1000;
+}
+
+nav ul li:hover ul { display: flex; }
+nav ul li ul li a { 
+    padding: 12px 16px; 
+    text-align: left; 
+    font-weight: normal;
+    border-bottom: 1px solid #ca15e1;
+}
+nav ul li ul li a:hover { background-color: #00897b; padding-left: 24px; }
+
+/* Contenedor principal */
+.contenido { padding: 40px 20px; max-width: 1000px; margin: 0 auto; text-align: center; }
+
+/* --- Estilos para el Acordeón Interactivo --- */
+.seccion-acordeon {
+    margin-top: 50px;
+    border-top: 2px solid #ccc;
+    padding-top: 30px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+.seccion-acordeon h2 { text-align: center; color: #800089; margin-bottom: 30px; }
+.caja-acordeon { background-color: white; border-radius: 8px; margin-bottom: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); overflow: hidden; }
+.caja-acordeon summary { background-color: #ca15e1; color: white; padding: 15px 20px; font-size: 1.2em; font-weight: bold; cursor: pointer; list-style: none; transition: background-color 0.3s ease; }
+.caja-acordeon summary::-webkit-details-marker { display: none; }
+.caja-acordeon summary:hover { background-color: #800089; }
+.contenido-acordeon { padding: 20px; background-color: #f9f9f9; color: #333; border-left: 5px solid #ca15e1; line-height: 1.6; }
+
+footer { background-color: #212121; color: #aaa; text-align: center; padding: 15px; margin-top: 40px; }
+
+/* =========================================
+   DISEÑO RESPONSIVO (CELULARES Y TABLETS)
+========================================= */
+@media (max-width: 768px) {
+    
+    header h1 { font-size: 1.8em; }
+    header p { font-size: 1em; }
+
+    /* 1. Mostrar el botón de hamburguesa */
+    .btn-hamburguesa {
+        display: block;
+        background-color: #800089;
+        color: white;
+        padding: 15px 20px;
+        font-size: 1.2em;
+        font-weight: bold;
+        cursor: pointer;
+        text-align: center;
+        border-bottom: 2px solid #ca15e1;
+    }
+
+    /* 2. Ocultar la lista de opciones por defecto */
+    nav > ul { 
+        display: none; 
+        flex-direction: column; 
+        width: 100%;
+    }
+    
+    /* 3. ¡LA MAGIA!: Si el checkbox está marcado, mostrar la lista */
+    #check-menu:checked ~ ul {
+        display: flex;
+    }
+
+    /* Ajustes visuales de la lista en modo celular */
+    nav ul li { width: 100%; border-bottom: 1px solid #800089; }
+    
+    nav ul li ul {
+        position: relative;
+        width: 100%;
+        box-shadow: none;
+    }
+
+    .contenido { padding: 20px 15px; }
+    .caja-acordeon summary { font-size: 1.1em; padding: 12px 15px; }
+    .contenido-acordeon { padding: 15px; font-size: 0.95em; }
+}

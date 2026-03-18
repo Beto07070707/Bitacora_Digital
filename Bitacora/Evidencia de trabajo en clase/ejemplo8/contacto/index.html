@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Subpágina - Ejemplo 8</title>
+    <link rel="stylesheet" type="text/css" href="../css/estilo.css">
+</head>
+<body>
+    <script>
+        document.addEventListener("DOMContentLoaded", function(){
+            const slides = document.querySelector('.slides');
+            if(!slides) return;
+            let index = 0;
+            const totalSlides = document.querySelectorAll('.slide').length;
+            setInterval(() => {
+                index = (index + 1) % totalSlides;
+                slides.style.transform = `translateX(-${index * 100}%)`;
+            }, 3000);
+        });
+    </script>
+
+    <header>
+        <h1>Mi Página Responsiva</h1>
+        <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+        <nav id="navMenu">
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="../acerca de/index.html">Acerca de</a></li>
+                <li><a href="../servicios/index.html">Servicios</a></li>
+                <li><a href="../contacto/index.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="slider">
+        <div class="slides">
+            <div class="slide">
+                <img src="../img/01.png" alt="Slide 1">
+            </div>
+            <div class="slide">
+                <img src="../img/02.png" alt="Slide 2">
+            </div>
+            <div class="slide">
+                <img src="../img/03.png" alt="Slide 3">
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="main-content" style="padding: 40px;"> 
+            <h2 style="margin-bottom: 20px;">contacto</h2>
+            <p style="line-height: 1.8;">
+                 Esto no es mas que una pagina con potencial explotable.
+            </p>
+        </div>
+
+        <div class="sidebar">
+            <div class="sidebar-content">
+                <div class="info-sidebar">
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Derechos de autor &copy; 2026 - Contreras Gamboa Roberto</p>
+    </footer>
+
+    <script>
+        function toggleMenu(){
+            const navMenu = document.getElementById("navMenu");
+            navMenu.classList.toggle("responsive");
+        }
+    </script>
+</body>
+</html>
